@@ -35,8 +35,8 @@ func BuildPayload(channel, username, icon_url, icon_emoji, text string) *bytes.R
         return bytes.NewReader(b)
 }
 
-func Post(webhook_url, payload *bytes.Reader) {
-  resp, err := http.Post(webhool_url, "application/json", payload)
+func Post(webhook_url string, payload *bytes.Reader) {
+  resp, err := http.Post(webhook_url, "application/json", payload)
         defer resp.Body.Close()
 
         if err != nil {
